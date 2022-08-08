@@ -50,12 +50,13 @@ function calculateDiscount(price, discount) {
   return +((price * discount/100).toFixed(2));
 }
 
-export const shippingPrice = (totalPrice , mode) => {
-	// if( mode === 'cod' ){
-	// 	return 0
-	// }
-  if( totalPrice <= 499 ){
-		return 100
+export const shippingPrice = (cart=[], state) => {
+	if(!state || state === '') return 0
+	let isDiscountedState = ['Andhra Pradesh','Karnataka','Kerala','Tamil Nadu','Telangana'].includes(state)
+	let quantitiy = cart.reduce((acc,curr)=>(acc+ curr.quantitiy),0)
+	console.log(quantitiy)
+	if(isDiscountedState){
+		return ((quantitiy-1) * 50)+ 100
 	}
-	return 0
+  return ((quantitiy-1) * 80)+ 150
 };

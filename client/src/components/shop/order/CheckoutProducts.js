@@ -68,10 +68,10 @@ export const CheckoutComponent = (props) => {
 
 	useEffect(() => {
     setTotalCost(totalCost(couponDetails && couponDetails.discount));
-    setDeliveryCharges(shippingPrice(ntotalCost,state.mode));
+    setDeliveryCharges(shippingPrice(JSON.parse(localStorage.getItem("cart")), state.state));
     setCODCharges(state.mode === "cod" ? 100 : 0);
     setTotalDiscount(discountAmount(couponDetails && couponDetails.discount));
-  }, [state.mode]);
+  }, [state.mode,state.state]);
 
   useEffect(() => {
     setTotalCost(totalCost(couponDetails && couponDetails.discount));
@@ -282,12 +282,9 @@ export const CheckoutComponent = (props) => {
                 <div className="font-semibold text-gray-600 text-sm md:text-left text-right">
                   Subtotal : ₹{ntotalCost}
                 </div>
-                {/* {state.mode != 'cod' && */}
-                { deliveryCharges > 0 &&
-                (<div className="font-semibold text-gray-600 text-sm md:text-left text-right">
+									{deliveryCharges> 0 && <div className="font-semibold text-gray-600 text-sm md:text-left text-right">
                   Delivery Charges : ₹{deliveryCharges}
-                 </div>)
-                 }
+                 </div> }             
                  <div className={couponDetails && couponDetails.discount > 0 ? "font-semibold text-gray-600 text-sm md:text-left text-right" : "hidden"}>
                    Discount : ₹{ntotalDiscount}
                  </div>
