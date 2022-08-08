@@ -1,0 +1,46 @@
+.sliderClassLeft {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 35px;
+  color: #000;
+  cursor: pointer;
+  border-radius: 50%;
+  margin-top: 22rem;
+}
+.sliderClassLeft:hover {
+  color: #000;
+}
+@media (max-width: 1000px) {
+  .sliderClassLeft {
+    margin-top: 16rem;
+  }
+}
+@media (max-width: 700px) {
+  .sliderClassLeft {
+    margin-top: 12rem;
+  }
+}
+.sliderClassRight {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 35px;
+  color: #000;
+  cursor: pointer;
+  border-radius: 50%;
+  margin-top: 22rem;
+}
+.sliderClassRight:hover {
+  color: #000;
+}
+@media (max-width: 1000px) {
+  .sliderClassRight {
+    margin-top: 16rem;
+  }
+  @media (max-width: 700px) {
+    .sliderClassRight {
+      margin-top:12rem;
+    }
+  }
+}
