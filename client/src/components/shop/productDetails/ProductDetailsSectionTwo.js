@@ -73,14 +73,14 @@ const ProductDetailsSectionTwo = (props) => {
       layoutData.singleProductDetail ? layoutData.singleProductDetail : ""
     );
   }, []);
-
+  let singleProductDetailsWithoutDesc = singleProduct?.pDescription?.split('<p>')?.splice(3)||[]
   return (
     <Fragment>
       <section className="m-4 md:mx-12 md:my-8">
         <Menu />
         {data.menu ? (
           <div className="mt-6">
-            {parse("<div>" + singleProduct.pDescription + "</div>")
+            {parse("<div>" + singleProductDetailsWithoutDesc.join('<p>') + "</div>")
             }
           </div>
         ) : (

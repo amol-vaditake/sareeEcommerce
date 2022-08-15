@@ -733,7 +733,7 @@ const ProductDetailsSection = (props) => {
     try {
       let responseData = await getSingleProduct(id);
       setTimeout(() => {
-        if (responseData.Product) {
+        if (responseData?.Product) {
           layoutDispatch({
             type: "singleProductDetail",
             payload: responseData.Product,
@@ -925,6 +925,7 @@ const ProductDetailsSection = (props) => {
                   </svg>
                 </span>
               </div>
+							{parse("<div>" + (sProduct?.pDescription?.split('<p>')?.splice(0,3)||[]).join('<p>') + "</div>")}
               <h3 style={{color:"blue"}}>Payment secured by razorpay</h3>
             </div>
             <div className="my-4 md:my-6 text-gray-600" dangerouslySetInnerHTML={{ __html: htmlDecode(sProduct.pDescription) }} >
