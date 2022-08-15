@@ -8,6 +8,9 @@ import { isWishReq, unWishReq, isWish, offerPrice } from "./Mixins";
 const apiURL = process.env.REACT_APP_API_URL;
 
 const Submenu = ({ category, showFilter, setShowFilter }) => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const history = useHistory();
   return (
     <Fragment>

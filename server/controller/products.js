@@ -49,8 +49,8 @@ class Product {
       });
     }
     // Validate Images
-    else if (images.length !== 2) {
-      return res.json({ error: "Must need to provide 2 images" });
+    else if (images.length !== 5) {
+      return res.json({ error: "Must need to provide 5 images" });
     } else {
       try {
         let allImages = [];
@@ -133,7 +133,7 @@ class Product {
         pOffer,
         pStatus,
       }
-      if (editImages.length == 2) {
+      if (editImages.length == 5) {
         let allEditImages = [];
         for (const img of editImages) {
 					const path = img.path
